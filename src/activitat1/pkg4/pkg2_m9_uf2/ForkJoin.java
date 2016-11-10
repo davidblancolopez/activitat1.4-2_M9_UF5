@@ -49,6 +49,8 @@ public class ForkJoin extends RecursiveTask<Double> {
         System.out.println("Resultat és: " + result);
 
     }
+    
+    
     @Override
     protected Double compute() {
 
