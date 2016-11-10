@@ -55,6 +55,8 @@ public class ForkJoin extends RecursiveTask<Double> {
     protected Double compute() {
 
         if (finale - inici > 4) {
+            //Dividir el problema en parts més petites. 
+           
             int mitat = inici + (finale - inici) / 2;
             ForkJoin forkJoin1 = new ForkJoin(array, inici, mitat);
             ForkJoin forkJoin2 = new ForkJoin(array, mitat + 1, finale);
@@ -63,10 +65,11 @@ public class ForkJoin extends RecursiveTask<Double> {
 
         } else {
             double temperaturaMitjanaBaixa = 0;
-            //Dividir el problema en parts més petites
+            //sumem amb el bucle les 4 temperatures.
             for (int i = inici; i <= finale; i++) {
                 temperaturaMitjanaBaixa += array[i];
             }
+            //Dividim les temperatures per tenir la mitjana.
             temperaturaMitjanaBaixa /= 4;
             return temperaturaMitjanaBaixa;
         }
