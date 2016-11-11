@@ -9,10 +9,10 @@ import static java.util.concurrent.ForkJoinTask.invokeAll;
 
 
 public class ForkJoin extends RecursiveTask<Double> {
-
+    //Declaració de variables.
     private final double[] array;
     private final int inici, finale;
-
+    //Constructor del ForkJoin.
     public ForkJoin(double[] arr, int ini, int fin) {
         this.array = arr;
         this.inici = ini;
@@ -20,7 +20,12 @@ public class ForkJoin extends RecursiveTask<Double> {
     }
 
     
-
+    /**
+     * Metode Main que conté l'array amb les temperatures agafades cada hora.
+     * Es creen el numero de fils segons el numero disponible i fa el invoke
+     * que dura a terme la tasca que tornara la temperatura mitjana més baixa.
+     * @param args 
+     */
     public static void main(String[] args) {
         double[] temperatures = {
             13.0, 13.2, 13.3, 13.4, //00:00 h.
@@ -50,7 +55,11 @@ public class ForkJoin extends RecursiveTask<Double> {
 
     }
     
-    
+    /**
+     * Metode compute() realitza la divisió per a poder calcular de forma més senzilla les mitjanes de temperatura.
+     * Retorna la temperatura mitjana més baixa.
+     * @return 
+     */
     @Override
     protected Double compute() {
 
